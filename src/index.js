@@ -7,18 +7,6 @@ import reportWebVitals from './reportWebVitals';
 
 
 let rootEL = document.getElementById('root');
-//
-//function render() {
-//  ReactDOM.render(<App />, rootEL);
-//}
-//
-//if (module.hot) {
-//  module.hot.accept('./app/layouts/App', function() {
-//    setTimeout(render)
-//  })
-//}
-//
-//render();
 
 const root = ReactDOM.createRoot(rootEL);
 
@@ -28,11 +16,7 @@ if (module.hot) {
   })
 }
 
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+root.render( <App /> );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
