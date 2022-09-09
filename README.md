@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+#### npx eslint src/**/*.js --fix
+
 In the project directory, you can run:
 
 ### `npm start`

@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import { Container } from "semantic-ui-react";
-import EventDashboard from "../../components/events/eventsDashboard";
-import NavBar from "../../components/navgation/navBar";
+import React, { Fragment } from 'react';
+import { Container } from 'semantic-ui-react';
+import EventDashboard from '../../components/events/eventDashboard/eventsDashboard';
+import NavBar from '../../components/navgation/navBar';
 
 function App() {
   return (
