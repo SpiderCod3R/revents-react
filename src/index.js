@@ -1,22 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'semantic-ui-css/semantic.min.css'
+import 'semantic-ui-css/semantic.min.css';
 import './app/layouts/styles.css';
 import App from './app/layouts/App';
 import reportWebVitals from './reportWebVitals';
-
 
 let rootEL = document.getElementById('root');
 
 const root = ReactDOM.createRoot(rootEL);
 
-if (module.hot) {
-  module.hot.accept('./app/layouts/App', function() {
-    setTimeout(root.render)
-  })
-}
-
-root.render( <App /> );
+root.render(<App />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
