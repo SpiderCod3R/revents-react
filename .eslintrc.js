@@ -25,5 +25,7 @@ module.exports = {
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
+    'react/jsx-key': 'off',
+    'react/prop-types': 'off',
   },
 };
