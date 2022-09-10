@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
+import cuid from 'cuid';
 import React from 'react';
 import { useState } from 'react';
 import { Button, Form, Header, Segment } from 'semantic-ui-react';
 
-export default function EventForm({ setFormOpen }) {
+export default function EventForm({ setFormOpen, setEvents, createEvent }) {
   let initialValues = {
     title: '',
     category: '',
@@ -15,7 +16,14 @@ export default function EventForm({ setFormOpen }) {
   let [values, setValues] = useState(initialValues);
 
   function handleFormSubmit() {
-    console.log(values);
+    createEvent({
+      ...values,
+      id: cuid(),
+      hostedBy: 'SpiderCod3R',
+      attendees: [],
+      hostPhotoURL: 'assets/user.png',
+    });
+    setFormOpen(false);
   }
 
   function handleInputChange(e) {
