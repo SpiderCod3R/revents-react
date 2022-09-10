@@ -4,8 +4,8 @@ import React from 'react';
 import { useState } from 'react';
 import { Button, Form, Header, Segment } from 'semantic-ui-react';
 
-export default function EventForm({ setFormOpen, setEvents, createEvent }) {
-  let initialValues = {
+export default function EventForm({ setFormOpen, setEvents, createEvent, selectedEvent }) {
+  let initialValues = selectedEvent ?? {
     title: '',
     category: '',
     city: '',
