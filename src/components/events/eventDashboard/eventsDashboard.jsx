@@ -9,9 +9,16 @@ import { sampleData } from '../../../app/api/sampleData';
 const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }) => {
   const [events, setEvents] = useState(sampleData);
 
+  // Formato padrao de criar função
   function handleCreateEvent(event) {
     setEvents([...events, event]);
   }
+
+  // Formato de criar função como Arrow Function
+  let handleUpdateEvent = (updatedEvent) => {
+    setEvents(events.map((evt) => (evt.id === updatedEvent.id ? updatedEvent : evt)));
+    selectEvent(null);
+  };
 
   return (
     <Grid>
@@ -24,6 +31,7 @@ const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }) =
             setFormOpen={setFormOpen}
             setEvents={setEvents}
             createEvent={handleCreateEvent}
+            updateEvent={handleUpdateEvent}
             selectedEvent={selectedEvent}
             key={selectedEvent ? selectedEvent.id : null}
           />

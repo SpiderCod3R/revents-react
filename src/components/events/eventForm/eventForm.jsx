@@ -4,7 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Button, Form, Header, Segment } from 'semantic-ui-react';
 
-export default function EventForm({ setFormOpen, setEvents, createEvent, selectedEvent }) {
+export default function EventForm({ setFormOpen, setEvents, createEvent, selectedEvent, updateEvent }) {
   let initialValues = selectedEvent ?? {
     title: '',
     category: '',
@@ -16,13 +16,15 @@ export default function EventForm({ setFormOpen, setEvents, createEvent, selecte
   let [values, setValues] = useState(initialValues);
 
   function handleFormSubmit() {
-    createEvent({
-      ...values,
-      id: cuid(),
-      hostedBy: 'SpiderCod3R',
-      attendees: [],
-      hostPhotoURL: 'assets/user.png',
-    });
+    selectedEvent
+      ? updateEvent({ ...selectedEvent, ...values })
+      : createEvent({
+          ...values,
+          id: cuid(),
+          hostedBy: 'SpiderCod3R',
+          attendees: [],
+          hostPhotoURL: 'assets/user.png',
+        });
     setFormOpen(false);
   }
 
