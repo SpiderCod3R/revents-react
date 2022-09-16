@@ -24,15 +24,22 @@ function App() {
   }
 
   return (
-    <Fragment>
-      <NavBar setFormOpen={handleCreateFormOpen} />
-      <Container className="main">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-        <Outlet />
-      </Container>
-    </Fragment>
+    <>
+      <Route exact path="/" component={HomePage} />
+      <Route
+        path={'/(.+)'}
+        render={() => (
+          <>
+            <NavBar setFormOpen={handleCreateFormOpen} />
+            <Container className="main">
+              <Route exact path="/events" component={EventDashboard} />
+              <Route path="/events/:id" component={EventDetailedPage} />
+              <Route path="/events/CreateEvent" component={EventForm} />
+            </Container>
+          </>
+        )}
+      />
+    </>
   );
 }
 
