@@ -1,8 +1,22 @@
 /* eslint-disable prettier/prettier */
 import React from "react";
+import { Grid } from "semantic-ui-react";
+import EventDetailedChat from "./eventDetailedChat";
+import EventDetailedHeader from "./eventDetailedHeader";
+import EventDetailedInfo from "./eventDetailedInfo";
+import EventDetailedSidebar from "./eventDetailedSidebar";
 
 export default function EventDetailedPage() {
   return (
-    <h1>EVENT DETAILED PAGE</h1>
+    <Grid>
+      <Grid.Column width={10}>
+        <EventDetailedHeader />
+        <EventDetailedInfo />
+        <EventDetailedChat />
+      </Grid.Column>
+      <Grid.Column width={6}>
+        <EventDetailedSidebar />
+      </Grid.Column>
+    </Grid>
   )
 }
