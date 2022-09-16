@@ -1,12 +1,20 @@
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import { Button, Container, Menu } from 'semantic-ui-react';
 import SignInMenu from './signInMenu';
 import SignOutMenu from './signOutMenu';
 
 export default function NavBar() {
+  const HISTORY = useHistory();
   const [authenticated, setAuthenticated] = useState(false);
+
+  let handleSignOut = () => {
+    setAuthenticated(false);
+    HISTORY.push('/');
+  };
+
   return (
     <Menu inverted fixed="top">
       <Container>
@@ -21,7 +29,7 @@ export default function NavBar() {
           </Menu.Item>
         )}
         {authenticated ? (
-          <SignInMenu setAuthenticated={setAuthenticated} />
+          <SignInMenu signOut={handleSignOut} />
         ) : (
           <SignOutMenu setAuthenticated={setAuthenticated} />
         )}
