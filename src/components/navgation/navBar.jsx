@@ -24,7 +24,7 @@ export default function NavBar() {
         </Menu.Item>
         <Menu.Item as={NavLink} exact to="/events" name="Events" />
         {authenticated && (
-          <Menu.Item as={NavLink} to="/events/CreateEvent">
+          <Menu.Item as={NavLink} to="/CreateEvent">
             <Button positive inverted content="Create Event" />
           </Menu.Item>
         )}

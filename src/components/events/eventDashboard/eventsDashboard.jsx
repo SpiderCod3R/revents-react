@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import { Grid } from 'semantic-ui-react';
-import EventForm from '../eventForm/eventForm';
 import EventList from './eventList';
 
 import { sampleData } from '../../../app/api/sampleData';
 
-const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }) => {
+const EventDashboard = () => {
   const [events, setEvents] = useState(sampleData);
 
   // Formato padrao de criar função
@@ -17,7 +16,6 @@ const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }) =
   // Formato de criar função como Arrow Function
   let handleUpdateEvent = (updatedEvent) => {
     setEvents(events.map((evt) => (evt.id === updatedEvent.id ? updatedEvent : evt)));
-    selectEvent(null);
   };
 
   let handleDeleteEvent = (eventID) => {
@@ -27,19 +25,10 @@ const EventDashboard = ({ formOpen, setFormOpen, selectEvent, selectedEvent }) =
   return (
     <Grid>
       <Grid.Column width={10}>
-        <EventList events={events} selectEvent={selectEvent} deleteEvent={handleDeleteEvent} />
+        <EventList events={events} deleteEvent={handleDeleteEvent} />
       </Grid.Column>
       <Grid.Column width={6}>
-        {formOpen && (
-          <EventForm
-            setFormOpen={setFormOpen}
-            setEvents={setEvents}
-            createEvent={handleCreateEvent}
-            updateEvent={handleUpdateEvent}
-            selectedEvent={selectedEvent}
-            key={selectedEvent ? selectedEvent.id : null}
-          />
-        )}
+        <h2>EVENT FILTERS</h2>
       </Grid.Column>
     </Grid>
   );

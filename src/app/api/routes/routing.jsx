@@ -7,7 +7,7 @@ import EventForm from '../../../components/events/eventForm/eventForm';
 import HomePage from '../../../components/home/HomePage';
 import NavBar from '../../../components/navgation/navBar';
 
-const ROUTER = ({ handleCreateFormOpen }) => {
+const ROUTER = () => {
   return (
     <>
       <Route exact path="/" component={HomePage} />
@@ -15,11 +15,11 @@ const ROUTER = ({ handleCreateFormOpen }) => {
         path={'/(.+)'}
         render={() => (
           <>
-            <NavBar setFormOpen={handleCreateFormOpen} />
+            <NavBar />
             <Container className="main">
               <Route exact path="/events" component={EventDashboard} />
               <Route path="/events/:id" component={EventDetailedPage} />
-              <Route path="/events/CreateEvent" component={EventForm} />
+              <Route path={['/CreateEvent', '/manage/:id']} component={EventForm} />
             </Container>
           </>
         )}
